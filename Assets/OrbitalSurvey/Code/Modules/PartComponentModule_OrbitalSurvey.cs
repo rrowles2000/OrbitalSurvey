@@ -56,7 +56,8 @@ namespace OrbitalSurvey.Modules
             if (m2 != null)
             {
                 var moduleDeployable = m2 as PartComponentModule_Deployable;
-                if (moduleDeployable.DataModules?.TryGetByType<Data_Deployable>(out var deployableData) == true)
+                Data_Deployable deployableData = null;
+                if (moduleDeployable.DataModules?.TryGetByType<Data_Deployable>(out deployableData) == true)
                 {
                     DataDeployable = deployableData;
                     DataDeployable.toggleExtend.OnChangedValue += (_) => ResetLastScanTime();
